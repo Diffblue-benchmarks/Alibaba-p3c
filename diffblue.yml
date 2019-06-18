@@ -1,4 +1,4 @@
-buildCmd: cd "./eclipse-plugin"; mvn -e -X -Dmaven.enforcer.skip=true -Denforcer.skip=true -Dair.check.skip-all=true -Dmaven.test.skip=true compile
+buildCmd: cd "./p3c-pmd"; mvn -e -X -Dmaven.enforcer.skip=true -Denforcer.skip=true -Dair.check.skip-all=true -Dmaven.test.skip=true compile
 testCmd: true
 skipVerification: true
 cbmcArguments:
@@ -173,3 +173,9 @@ phases:
       cover-function-only: false
       # instrument the file as opposed to the function only
       cover-only: file
+units:
+ - target:
+   - dir: target/classes
+     file: com/alibaba/p3c/pmd/lang/java/util/GeneratedCodeUtils.class
+     sourceDir: src/main/java
+     sourceFile: com/alibaba/p3c/pmd/lang/java/util/GeneratedCodeUtils.java
